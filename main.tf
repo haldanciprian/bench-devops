@@ -119,14 +119,5 @@ resource "azurerm_linux_virtual_machine" "azurerm_vm" {
     host        = self.public_ip_address
   }
 
-  provisioner "remote-exec" {
-    inline = [
-      "sudo apt-get update -y",
-      "sudo apt install python3-pip -y",
-      "python3 -m pip install --upgrade pip",
-      "python3 -m pip install ansible ansible-generator"
-    ]
-  }
-
   tags = var.tags
 }
